@@ -1,12 +1,14 @@
 var React = require('react');
 var Header = require('./header.jsx');
 var Footer = require('./footer.jsx');
+var Info = require('./info.jsx');
 var Container = React.createClass({
     render: function(){
         return (
             <div id="wrapper">
                 <Header title="WS Monitoring"/>
                 <div className="page-wrapper">
+                    <Info />
                 </div>
                 <Footer />
                 <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css"/>
