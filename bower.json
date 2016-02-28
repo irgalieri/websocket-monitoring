@@ -1,0 +1,29 @@
+{
+  "name": "websocket-monitoring",
+  "description": "This an example of integration between BE and FE using WebSocket and javascript",
+  "main": "index.js",
+  "authors": [
+    "Ignacio R. Galieri <irgalieri@gmail.com> (http://elnachonerd.com/)"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "Monitoring",
+    "WebSocket",
+    "React",
+    "Boostrap",
+    "Example"
+  ],
+  "homepage": "https://github.com/irgalieri/websocket-monitoring",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "startbootstrap-sb-admin-2": "^1.0.8"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "websocket-monitoring",
+  "version": "0.0.1",
+  "description": "This an example of integration between BE and FE using WebSocket and javascript",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --harmony ./index.js"
+  },
+  "config": {
+    "port": 8080,
+    "debug": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irgalieri/websocket-monitoring.git"
+  },
+  "keywords": [
+    "Monitoring",
+    "WebSocket",
+    "React",
+    "Boostrap",
+    "Example"
+  ],
+  "author": "Ignacio R. Galieri <irgalieri@gmail.com> (http://elnachonerd.com/)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/irgalieri/websocket-monitoring/issues"
+  },
+  "homepage": "https://github.com/irgalieri/websocket-monitoring#readme",
+  "dependencies": {
+    "browserify": "^13.0.0",
+    "express": "^4.13.4",
+    "express-minify": "^0.2.0",
+    "node-jsx": "^0.13.3",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "reactify": "^1.1.1",
+    "uglifyify": "^3.0.1"
+  }
+}
