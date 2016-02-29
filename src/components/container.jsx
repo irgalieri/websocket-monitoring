@@ -6,25 +6,24 @@ var RealTimeChart = require('./realtimechart.jsx');
 var Container = React.createClass({
     onClick: function (e) {
         var self = this;
-        var interval = 0;
-        var update = function (obj) {
+        var update = function (obj, data) {
             var btn = obj.state.btn;
             var items = [
                 {
                     name: "Model",
-                    value: "N/A"
+                    value: data.model
                 },
                 {
                     name: "CPU User Avg",
-                    value: Math.random()
+                    value: data.cpuuser
                 },
                 {
                     name: "CPU Sys Avg",
-                    value: Math.random()
+                    value: data.cpusys
                 },
                 {
                     name: "CPU Idle Avg",
-                    value: Math.random()
+                    value: data.cpuidle
                 }
             ];
             var freepoints = obj.state.freepoints;
@@ -40,14 +39,14 @@ var Container = React.createClass({
 
             freepoints.push(
                 {
-                    timestamp: new Date().getTime(),
-                    value: Math.round((Math.random() * 100))
+                    timestamp: data.timestamp,
+                    value: data.memfree
                 }
             );
             usagepoints.push(
                 {
-                    timestamp: new Date().getTime(),
-                    value: Math.round((Math.random() * 100))
+                    timestamp: data.timestamp,
+                    value: data.memusage
                 }
             );
             obj.setState(
@@ -66,7 +65,16 @@ var Container = React.createClass({
         var btn = { name: "Start", classname: "btn-success"};
         if (this.state.btn.classname == "btn-success") {
             var btn = { name: "End", classname: "btn-danger"};
-            interval = setInterval(function() { update(self); }, 2000);
+            connection = new WebSocket('ws://127.0.0.1:11333');
+            connection.onopen = function (e) {
+                connection.send('INIT');
+            };
+            connection.onmessage = function (e) {
+                update(self, JSON.parse(e.data));
+            };
+        } else {
+            connection.send('END');
+            connection.close();
         }
         this.setState(
             {
@@ -106,6 +114,7 @@ var Container = React.createClass({
       };
     },
     render: function(){
+        var connection = null;
         return (
             <div>
                 <Header title="WS Monitoring"/>
