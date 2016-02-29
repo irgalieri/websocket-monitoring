@@ -2,36 +2,30 @@ var React = require('react');
 
 var RealTimeChart = React.createClass({
     componentDidMount() {
-        var limmit = this.props.maxxpoints;
+        var self = this;
 
-        function updateLiveGraph(mainGraph) {
-            var newelement = {
-                timestamp: new Date().getTime(),
-                value: Math.round((Math.random() * 100))
-            };
-            var data = [];
-
-            var tam = mainGraph.data.length;
-
-            if ( tam < limmit) {
-                for (i = 0; i < tam; i++) {
-                    data.push(mainGraph.data[i].src);
-                }
-            } else {
-                for (i = 1; i < tam; i++) {
-                    data.push(mainGraph.data[i].src);
-                }
+        function updateLiveGraph(mainGraph, obj) {
+            var result = obj.props.points;
+            if ( obj.props.points.length <=0 ) {
+                var result = [
+                    {
+                        timestamp: new Date().getTime(),
+                        value: 0
+                    }
+                ];
             }
-
-            data.push(newelement);
-            mainGraph.setData(data);
+            mainGraph.setData(result);
         }
-        var result = [
-            {
-                timestamp: new Date().getTime(),
-                value: Math.round((Math.random() * 100))
-            }
-        ];
+
+        result = this.props.points;
+        if ( result.length <=0 ) {
+            var result = [
+                {
+                    timestamp: new Date().getTime(),
+                    value: 0
+                }
+            ];
+        }
         var mainGraph = Morris.Line({
             element: "morris-area-chart-" + this.props.id,
             data: result,
@@ -45,7 +39,7 @@ var RealTimeChart = React.createClass({
             resize: true
         });
 
-        setInterval(function() { updateLiveGraph(mainGraph); }, 2000);
+        setInterval(function() { updateLiveGraph(mainGraph, self); }, 2000);
     },
     render: function(){
         return (

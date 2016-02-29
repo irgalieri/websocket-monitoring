@@ -32,6 +32,10 @@ app.use('/bundle.css', function(req, res) {
             margin:0px auto;
             display:block;
         }
+        .btn-nacho {
+            float: right;
+            min-width: 70px;
+        }
         .fork {
           padding-top: 5px !important;
           margin-right: 5px !important;

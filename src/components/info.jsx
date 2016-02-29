@@ -4,7 +4,7 @@ var Row = React.createClass({
     render: function(){
         return (
             <a href="#" className="list-group-item">
-                {this.props.incoming.title}
+                {this.props.incoming.name}
                 <span className="pull-right text-muted small">
                     <em>{this.props.incoming.value}</em>
                 </span>
@@ -14,12 +14,8 @@ var Row = React.createClass({
 });
 var Info = React.createClass({
     render: function(){
-        var incomings = [
-            {title:"CPU Usage",value:"20%"},
-            {title:"Memory Usage",value:"30%"}
-        ];
-        var rows = incomings.map(function(incoming){
-          return (<Row key={incoming.title} incoming={incoming} />);
+        var rows = this.props.items.map(function(incoming){
+          return (<Row key={incoming.name} incoming={incoming} />);
         });
         return (
             <div className="col-lg-4">
