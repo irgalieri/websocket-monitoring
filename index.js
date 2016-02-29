@@ -9,7 +9,7 @@ var minify = require('express-minify');
 jsx.install();
 
 
-var Container = require('./src/components/container.jsx');
+var Lodding = require('./src/components/lodding.jsx');
 
 app.use(minify());
 app.use(express.static(__dirname + '/bower_components'));
@@ -28,8 +28,17 @@ app.use('/bundle.js', function(req, res) {
 app.use('/bundle.css', function(req, res) {
   res.setHeader('content-type', 'text/css');
   res.send(`
-        .page-wrapper {
-          min-height: 180px;
+        #lodding {
+            margin:0px auto;
+            display:block;
+        }
+        .fork {
+          padding-top: 5px !important;
+          margin-right: 5px !important;
+          padding-bottom: 5px !important;
+        }
+        .header-nacho {
+            margin-bottom: 0px;
         }
         .navbar-copy {
             padding: 15px;
@@ -59,9 +68,9 @@ app.use('/', function(req, res) {
     React.DOM.body(
       null,
       React.DOM.div({
-        id: 'container',
+        id: 'wrapper',
         dangerouslySetInnerHTML: {
-          __html: ReactDOMServer.renderToString(React.createElement(Container, null))
+          __html: ReactDOMServer.renderToString(React.createElement(Lodding, null))
         }
       }),
       React.DOM.script({
