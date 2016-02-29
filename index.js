@@ -104,7 +104,7 @@ app.use('/', function(req, res) {
   ));
 });
 
-var server = app.listen(process.env.npm_package_config_port, function() {
+var server = app.listen(process.env.npm_package_config_webport, function() {
   var addr = server.address();
   console.log('Listening @ http://%s:%d', addr.address, addr.port);
 });

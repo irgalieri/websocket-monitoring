@@ -4,11 +4,15 @@
   "description": "This an example of integration between BE and FE using WebSocket and javascript",
   "main": "index.js",
   "scripts": {
-    "start": "node --harmony ./index.js"
+    "webstart": "node --harmony ./index.js",
+    "wsstart": "node --harmony ./wsserver.js"
   },
   "config": {
-    "port": 8080,
-    "debug": true
+    "webport": 8080,
+    "wsport": 11333,
+    "debug": true,
+    "heartbeat": 1000,
+    "protocol": "none"
   },
   "repository": {
     "type": "git",
@@ -35,6 +39,7 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "reactify": "^1.1.1",
-    "uglifyify": "^3.0.1"
+    "uglifyify": "^3.0.1",
+    "websocket": "^1.0.22"
   }
 }
