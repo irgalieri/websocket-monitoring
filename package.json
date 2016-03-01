@@ -11,7 +11,7 @@
   "config": {
     "webport": 8080,
     "wsport": 11333,
-    "debug": true,
+    "debug": false,
     "heartbeat": 1000,
     "protocol": "none"
   },

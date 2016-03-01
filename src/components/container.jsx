@@ -122,7 +122,7 @@ var Container = React.createClass({
                     <div className="row">
                         <div className="col-lg-12">
                             <h1 className="page-header">
-                                Drash Board
+                                Dash Board
                                 <button
                                     onClick={this.onClick}
                                     className={"btn " + this.state.btn.classname + " btn-nacho"}>
