@@ -3,6 +3,8 @@ Websocket Monitoring
 
 This an example of integration between BE and FE using WebSocket. [Live Demo](http://elnachonerd.com:8080)
 
+[Slides](http://slides.com/nachonerd/deck/fullscreen)
+
 Usage
 -----
 
